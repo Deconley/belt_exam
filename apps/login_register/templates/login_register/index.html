@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Log in and Registration</title>
+</head>
+<body>
+  {% if messages %}
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+  <h1>New User Registration:</h1>
+    <p><form action="/register" method="POST"></p>
+      {% csrf_token %}
+      <p><label>First Name:</label></p>
+      <p><input type="text" name="first_name"/></p>
+
+      <p><label>Last name:</label></p>
+      <p><input type="text" name="last_name"/></p>
+
+      <p><label>Email:</label></p>
+      <p><input type="email" name="email"/></p>
+
+      <p><label>Password:</label></p>
+      <p><input type="password" name="password"/></p>
+
+      <p><label>Password Confirmation:</label></p>
+      <p><input type="password" name="password_confirmation"/></p>
+
+      <p><input type="submit" value="Register"/></p>
+    <p></form></p>
+    <h1>Login</h1>
+      <p><form action="/login" method="POST"></p>
+        {% csrf_token %}
+        <p><label>Email:</label></p>
+        <p><input type="email" name="email"/></p>
+
+        <p><label>Password:</label></p>
+        <p><input type="password" name="password"/></p>
+
+        <p><input type="submit" value="Login"/></p>
+      <p></form></p>
+</body>
+</html>

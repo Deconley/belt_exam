@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Create Item</title>
+</head>
+<body>
+  <a href="/logout">Logout</a>
+  <a href="/success">Home</a>
+  <hr>
+  <h1>Create a New Wish List Item:</h1>
+  <form action="/addItem" method="post">
+    {% csrf_token %}
+    <p><label for='creatItem'></label>Item/Product:
+      <input type="text" name="name"></p>
+    <p><input type='submit' name="Submit" value="Add"></p>
+  </form>
+</body>
+</html>

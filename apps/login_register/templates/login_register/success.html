@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Success Page</title>
+</head>
+<body>
+  <h1>Success! Welcome {{ user.first_name }}</h1>
+  <h2>Your Wish List:</h2>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Added By</th>
+      <th>Date Added</th>
+      <th>Action</th>
+    </tr>
+      {% for item in items %}
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.user }}</td>
+      <td>{{ item.created_at }}</td>
+      <form action="/addItem" >
+				{% csrf_token %}
+        <input type="submit" value="Add">
+    </form>
+    </tr>
+    <hr>
+      {% endfor %}
+    </table>
+    <h2>Other Users' Wish List:</h2>
+    <tr>
+      <th>Item</th>
+      <th>Added By</th>
+      <th>Date Added</th>
+      <th>Action</th>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+      <p><a href="/logout">Logout</a></p>
+      <p><a href="/createItem">Add Item</a></p>
+</body>
+</html>
